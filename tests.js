@@ -1,10 +1,12 @@
+import denv from "dotenv";
 import fetch from "node-fetch";
+
+const dotenv = denv.config();
 
 const url =
   "https://api.dev.bancobari.com.br/partners/v2/proposal?pageNumber=0&pageSize=10";
 
-const bearerToken =
-  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiTUFTVEVSIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZW1haWxhZGRyZXNzIjoiY29udGFiaWxpZGFkZUBiYXJpZ3VpcHJvbW90b3JhLmNvbS5iciIsIlVzZXJJZCI6IjEiLCJleHAiOjE2Mjg4OTk4NzcsImlzcyI6Ik5vdmkiLCJhdWQiOiJOb3ZpIn0.jHPFPCDS3OOGuY7RDXet1oCZWd8PwEWW2qUo79-IPmg";
+const bearerToken = `Bearer ${process.env.BEARER_TOKEN}`;
 
 class RequestAnalytics {
   constructor(beforeRequest, afterRequest) {
